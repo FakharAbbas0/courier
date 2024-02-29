@@ -2,9 +2,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Slab; 
-use App\SlabInfo;
-use App\SlabOrigin;
+use App\Models\Slab; 
+use App\Models\SlabInfo;
+use App\Models\SlabOrigin;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Input;
 class SlabController extends Controller

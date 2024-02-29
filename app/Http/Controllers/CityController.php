@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\AllCities;
-use App\Zone;
+use App\Models\City;
+use App\Models\Zone;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Input;
@@ -22,7 +22,7 @@ class CityController extends Controller
      */
     public function index()
     {
-        $cities = AllCities::latest()->get();
+        $cities = City::latest()->get();
         return view('city.index', compact('cities'));
     }
 
@@ -49,7 +49,7 @@ class CityController extends Controller
             'name' => 'required|unique:cities',
         ]);
 
-        $city = new AllCities();
+        $city = new City();
         $city->name = $request->name;
         $city->zone_id = $request->zone_id;
         $city->tax = $request->tax;
@@ -74,10 +74,10 @@ class CityController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param AllCities $city
+     * @param City $city
      * @return Response
      */
-    public function edit(AllCities $city)
+    public function edit(City $city)
     {
         $zones = Zone::all();
         return view('city.edit', compact('city','zones'));
@@ -87,7 +87,7 @@ class CityController extends Controller
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param AllCities $city
+     * @param City $city
      * @return void
      */
     public function update(Request $request, $city)
@@ -95,7 +95,7 @@ class CityController extends Controller
         $request->validate([
             'name' => 'required|unique:cities,name,'. $city,
         ]);
-        $city = AllCities::find($city);
+        $city = City::find($city);
         $city->name = $request->name;
         $city->zone_id = $request->zone_id;
         $city->tax = $request->tax;
@@ -109,11 +109,11 @@ class CityController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param AllCities $city
+     * @param City $city
      * @return Response
      * @throws \Exception
      */
-    public function destroy(AllCities $city)
+    public function destroy(City $city)
     {
         if ($city->delete()){
             return back()->with('success', 'Class delete successfully');

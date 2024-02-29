@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Customer;
-use App\AllCities; 
+use App\Models\Customer;
+use App\Models\City; 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
@@ -33,7 +33,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        $data['cities'] = AllCities::all();
+        $data['cities'] = City::all();
         return view('customer.create',$data);
     }
 
@@ -46,7 +46,7 @@ class CustomerController extends Controller
         $customer->email = $request->email;
         $customer->phone = $request->phone;
         $customer->address = $request->address;
-        $customer->city = $request->city;
+        $customer->city = $request->city_id;
         $customer->sale_tax = $request->sale_tax;
         $customer->fuel_surcharge = $request->fuel_surcharge;
         $customer->password = Hash::make($request->password);
@@ -79,7 +79,7 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        $cities = AllCities::all();
+        $cities = City::all();
         return view('customer.edit', compact('customer','cities'));
     }
 
@@ -90,7 +90,7 @@ class CustomerController extends Controller
         $customer->name = $request->name;
         $customer->email = $request->email;
         $customer->phone = $request->phone;
-        $customer->city = $request->city;
+        $customer->city = $request->city_id;
         $customer->sale_tax = $request->sale_tax;
         $customer->fuel_surcharge = $request->fuel_surcharge;
         $customer->address = $request->address;

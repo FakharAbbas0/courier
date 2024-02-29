@@ -1,9 +1,9 @@
 @include('partials.flash_messages.flashMessages')
-<div class="panel panel-info sender_info">
-    <div class="panel-heading">
+<div class="card card-info sender_info">
+    <div class="card-header">
         General Information
     </div>
-    <div class="panel-body">
+    <div class="card-body">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="form-group">
@@ -73,11 +73,11 @@
     </div>
 </div>
 
-<div class="panel panel-info sender_info">
-    <div class="panel-heading">
+<div class="card card-info sender_info">
+    <div class="card-header">
         Charges Information
     </div>
-    <div class="panel-body">
+    <div class="card-body">
         <div class="row">
             
             <div class="col-lg-4 col-md-4 col-sm-6">

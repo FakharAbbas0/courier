@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\AllCities;
-use App\Customer;
-use App\Order;
-use App\Service;
-use App\OrderInfo;
+use App\Models\City;
+use App\Models\Customer;
+use App\Models\Order;
+use App\Models\ServiceType;
+use App\Models\OrderInfo;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Arr;
@@ -16,7 +16,7 @@ class OrderController extends Controller
 {
     function __construct()
     {
-        $this->middleware('role:admin');
+        // $this->middleware('role:admin');
     }
 
     /**
@@ -26,7 +26,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::with('orderInfo','originCity','destinationCity','orderStatus')->get();
+        $orders = [];
+        // $orders = Order::with('orderInfo','originCity','destinationCity','orderStatus')->get();
         // dd($orders);
         // die;
         return view('order.index', compact('orders'));
@@ -40,8 +41,9 @@ class OrderController extends Controller
     public function create()
     {
         $data['customers'] = Customer::all();
-        $data['services'] = Service::all();
-        $data['cities'] = AllCities::all();
+        $data['services'] = ServiceType::all();
+        $data['cities'] = City::all();
+        
         return view('order.create',$data);
     }
     public function AddUpdate(Request $request){
@@ -115,8 +117,8 @@ class OrderController extends Controller
     public function edit(Request $request, $id)
     {
         $data['customers'] = Customer::all();
-        $data['services'] = Service::all();
-        $data['cities'] = AllCities::all();
+        $data['services'] = ServiceType::all();
+        $data['cities'] = City::all();
         $data['order'] = Order::with('orderInfo')->find($id);
         // dd($data['order']);
         return view('order.edit', $data);
@@ -129,23 +131,9 @@ class OrderController extends Controller
      * @param int $id
      * @return Response
      */
-    public function update(ParentUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $parent = AllParent::find($id);
-
-        $parent->update($request->all());
-
-        $user = [
-            'name' => $request->name,
-            'email' => $request->email
-        ];
-
-        if(!empty($request['password'])){
-            $user['password'] = Hash::make($request['password']);
-        }
-
-        $update = $parent->user->update($user);
-
+        $update = false;
         if ($update){
             return redirect(route('parents.index'))->with('success', 'Parent update successfully');
         }

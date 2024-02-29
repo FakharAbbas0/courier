@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Zone; 
+use App\Models\Zone; 
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Input;
 class ZoneController extends Controller

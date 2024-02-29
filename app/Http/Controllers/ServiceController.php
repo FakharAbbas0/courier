@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Service; 
+use App\Models\ServiceType; 
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Input;
 class ServiceController extends Controller
