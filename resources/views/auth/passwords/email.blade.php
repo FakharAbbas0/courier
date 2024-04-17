@@ -9,7 +9,7 @@
 
         <div class="row">
             <div class="col-md-12">
-                <div class="ibox-content">
+                <div class="card-body">
                     <h2 class="font-bold">Forgot password</h2>
                     <p>Enter your email address and your password will be reset and emailed to you.</p>
 

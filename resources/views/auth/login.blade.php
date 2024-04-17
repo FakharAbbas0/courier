@@ -40,7 +40,7 @@
                     @endif
                 </div>
 
-                {{--<div class="col-lg-offset-2 col-lg-10">
+                {{--<div class="mt-3 col-lg-10 ">
                     <div class="i-checks"><label> <input name="remember" {{ old('remember') ? 'checked' : '' }} id="remember" type="checkbox"><i></i> Remember me </label></div>
                 </div>--}}
 

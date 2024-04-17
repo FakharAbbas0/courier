@@ -25,8 +25,8 @@
             @role('teacher')
 
                 <div class="col-lg-12">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
+                    <div class="card float-e-margins">
+                        <div class="card-header">
                             <h5>Add attendance</h5>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
@@ -50,12 +50,12 @@
             @endrole
 
             <div class="col-lg-12">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
+                <div class="card float-e-margins">
+                    <div class="card-header">
                         <h5>Attendance</h5>
                     </div>
 
-                    <div class="ibox-content">
+                    <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover dataTables-example" >
                                 <thead>
@@ -93,12 +93,12 @@
                                             <td>
                                                 @role('teacher')
                                                     @can('attendance-edit')
-                                                        <a title="Edit" href="{{ route('attendances.edit', $item->id) }}" class="cus_mini_icon color-success"> <i class="fa fa-pencil-square-o"></i></a>
+                                                        <a title="Edit" href="{{ route('attendances.edit', $item->id) }}" class="cus_mini_icon color-success"> <i class="bi bi-pencil-square"></i></a>
                                                     @endcan
                                                 @endrole
                                                 @role('teacher|admin')
                                                     @can('attendance-delete')
-                                                        <a title="Delete" data-toggle="modal" data-target="#myModal{{$item->id}}" type="button" class="cus_mini_icon color-danger"><i class="fa fa-trash"></i></a>
+                                                        <a title="Delete" data-toggle="modal" data-target="#myModal{{$item->id}}" type="button" class="cus_mini_icon color-danger"><i class="bi bi-trash-fill"></i></a>
                                                     @endcan
                                                 @endrole
                                             </td>

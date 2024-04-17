@@ -11,7 +11,7 @@
 
     <h2 class="text-center">{{ $attendances[0]->user->name }} , {{ $month }}-{{ $year }}</h2>
 
-    <div class="ibox-content">
+    <div class="card-body">
         <div class="table-responsive">
             <table class="table table-striped table-bordered table-hover dataTables-example" >
 

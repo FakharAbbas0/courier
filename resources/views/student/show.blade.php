@@ -27,12 +27,12 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
+                <div class="card float-e-margins">
+                    <div class="card-header">
                         <h5>Student</h5>
                     </div>
 
-                    <div class="ibox-content">
+                    <div class="card-body">
 
                         <div class="row">
                             <div class="col-sm-4">

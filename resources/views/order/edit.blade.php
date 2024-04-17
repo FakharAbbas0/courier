@@ -7,9 +7,9 @@
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
             <div class="col-lg-12">
-                <div class="ibox float-e-margins">
+                <div class="card float-e-margins">
                     
-                    <div class="ibox-content">
+                    <div class="card-body">
 
                         <form method="POST" action="{{ route('orders.update') }}" class="form-horizontal">
                             

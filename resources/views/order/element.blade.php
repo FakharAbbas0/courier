@@ -29,7 +29,7 @@
                             @foreach ($services as $ser)
                                 <option value="{{ $ser->id }}"
                                     {{ isset($order->service_id) && $order->service_id == $ser->id ? 'selected' : '' }}>
-                                    {{ $ser->service_type }}</option>
+                                    {{ $ser->name }}</option>
                             @endforeach
                         </select>
                     </div>

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id(); 
+            $table->uuid('guid');
             $table->string('tracking_no',255)->nullable();
             $table->integer('customer_id')->nullable();
             $table->integer('service_id')->nullable();

@@ -17,8 +17,8 @@
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-content">
+                    <div class="card float-e-margins">
+                        <div class="card-body">
                             <img class="img-responsive h-300" src="http://rc.edu.bd/notice_panel/rc/upload_notices/Class_Rutin1.jpg">
                         </div>
                     </div>

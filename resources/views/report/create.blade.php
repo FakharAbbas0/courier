@@ -22,8 +22,8 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
+                <div class="card float-e-margins">
+                    <div class="card-header">
                         <h5>Create report</h5>
                         <div class="ibox-tools">
                             <a class="collapse-link">
@@ -32,7 +32,7 @@
                         </div>
                     </div>
 
-                    <div class="ibox-content">
+                    <div class="card-body">
                         <form method="POST" action="{{ route('reports.create') }}" class="form-horizontal">
                             @csrf()
 

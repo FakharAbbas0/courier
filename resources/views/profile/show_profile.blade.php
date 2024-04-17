@@ -19,11 +19,11 @@
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
             <div class="col-lg-12">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
+                <div class="card float-e-margins">
+                    <div class="card-header">
                         <h5>Change Profile</h5>
                     </div>
-                    <div class="ibox-content">
+                    <div class="card-body">
 
                         <form method="POST" action="{{ route('profile') }}" class="form-horizontal">
                             @csrf()
@@ -86,7 +86,7 @@
                             </div>--}}
 
                             <div class="form-group">
-                                <div class="col-lg-offset-2 col-lg-10">
+                                <div class="mt-3 col-lg-10 ">
                                     <a href="{{ url()->previous() }}" class="btn btn-sm btn-warning t m-t-n-xs"><strong>Cancel</strong></a>
                                     <button class="btn btn-sm btn-primary m-t-n-xs" type="submit">
                                         <strong>Submit</strong></button>

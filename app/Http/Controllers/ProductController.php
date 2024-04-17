@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\City;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Input;
 
-class CityController extends Controller
+class ProductController extends Controller
 {
     function __construct()
     {
-        $this->middleware('role:admin');
+        // $this->middleware('role:admin');
     }
 
     /**
@@ -21,8 +21,8 @@ class CityController extends Controller
      */
     public function index()
     {
-        $cities = AllCities::latest()->get();
-        return view('city.index', compact('cities'));
+        $products = Product::latest()->get();
+        return view('product.index', compact('products'));
     }
 
     /**
@@ -32,7 +32,7 @@ class CityController extends Controller
      */
     public function create()
     {
-        return view('city.create');
+        return view('product.create');
     }
 
     /**
@@ -44,17 +44,17 @@ class CityController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|unique:cities',
+            'name' => 'required|unique:products',
         ]);
 
-        $city = new AllCities();
-        $city->name = $request->name;
-        $city->tax = $request->tax;
-        $store = $city->save();
+        $product = new Product();
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $store = $product->save();
         if ($store){
-            return redirect(route('city.index'))->with('success', 'City create successfully');
+            return redirect(route('products.index'))->with('success', 'New Product create successfully');
         }
-        return back()->with('warning', 'City could not be create');
+        return back()->with('warning', 'Product could not be create');
     }
 
     /**
@@ -71,48 +71,48 @@ class CityController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param AllCities $city
+     * @param Product $product
      * @return Response
      */
-    public function edit(AllCities $city)
+    public function edit(Product $product)
     {
-        return view('city.edit', compact('city'));
+        return view('product.edit', compact('product'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param AllCities $city
+     * @param Product $product
      * @return void
      */
-    public function update(Request $request, $city)
+    public function update(Request $request, $product_id)
     {
         $request->validate([
-            'name' => 'required|unique:cities,name,'. $city,
+            'name' => 'required|unique:products,name,'. $product_id,
         ]);
-        $city = AllCities::find($city);
-        $city->name = $request->name;
-        $city->tax = $request->tax;
-        $store = $city->update();
+        $product = Product::find($product_id);
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $store = $product->update();
         if ($store){
-            return redirect(route('city.index'))->with('success', 'Class update successfully');
+            return redirect(route('products.index'))->with('success', 'Product update successfully');
         }
-        return back()->with('warning', 'Class could not be update');
+        return back()->with('warning', 'Product could not be update');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param AllCities $city
+     * @param Product $product
      * @return Response
      * @throws \Exception
      */
-    public function destroy(AllCities $city)
+    public function destroy(Product $product)
     {
-        if ($city->delete()){
-            return back()->with('success', 'Class delete successfully');
+        if ($product->delete()){
+            return back()->with('success', 'Product delete successfully');
         }
-        return back()->with('warning', 'Class could not be delete');
+        return back()->with('warning', 'Product could not be delete');
     }
 }

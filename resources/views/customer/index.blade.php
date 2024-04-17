@@ -27,12 +27,12 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
+                <div class="card float-e-margins">
+                    <div class="card-header">
                         <h5>Customer</h5>
                     </div>
 
-                    <div class="ibox-content">
+                    <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover dataTables-example" >
                                 <thead>
@@ -66,8 +66,8 @@
 
                                         <td>
                                             {{-- <a title="Assign role" href="{{ route('assign-role.edit', $item->id) }}" class="cus_mini_icon color-success"> <i class="fa fa-user-plus" aria-hidden="true"></i></a> --}}
-                                            <a title="Edit" href="{{ route('customers.edit', $item->id) }}" class="cus_mini_icon color-success"> <i class="fa fa-pencil-square-o"></i></a>
-                                            <a title="Delete" data-toggle="modal" data-target="#myModal{{$item->id}}" type="button" class="cus_mini_icon color-danger"><i class="fa fa-trash"></i></a>
+                                            <a title="Edit" href="{{ route('customers.edit', $item->id) }}" class="cus_mini_icon color-success"> <i class="bi bi-pencil-square"></i></a>
+                                            <a title="Delete" data-toggle="modal" data-target="#myModal{{$item->id}}" type="button" class="cus_mini_icon color-danger"><i class="bi bi-trash-fill"></i></a>
                                         </td>
 
                                         <!-- The Modal -->

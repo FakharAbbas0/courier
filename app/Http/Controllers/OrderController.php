@@ -32,7 +32,14 @@ class OrderController extends Controller
         // die;
         return view('order.index', compact('orders'));
     }
-
+    public function report()
+    {
+        $orders = [];
+        // $orders = Order::with('orderInfo','originCity','destinationCity','orderStatus')->get();
+        // dd($orders);
+        // die;
+        return view('order.index', compact('orders'));
+    }
     /**
      * Show the form for creating a new resource.
      *

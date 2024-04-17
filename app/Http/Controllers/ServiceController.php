@@ -15,7 +15,7 @@ class ServiceController extends Controller
     public function index()
     {
         //
-        $services = Service::latest()->get();
+        $services = ServiceType::latest()->get();
         return view('service.index', compact('services'));
     }
 
@@ -42,7 +42,7 @@ class ServiceController extends Controller
             'service_type' => 'required|unique:cities',
         ]);
 
-        $service = new Service();
+        $service = new ServiceType();
         $service->service_type = $request->service_type;
         $service->description = $request->description;
         $store = $service->save();
@@ -69,7 +69,7 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
+    public function edit(ServiceType $service)
     {
         return view('service.edit', compact('service'));
     }
@@ -86,7 +86,7 @@ class ServiceController extends Controller
         $request->validate([
             'service_type' => 'required',
         ]);
-        $service = Service::find($service);
+        $service = ServiceType::find($service);
         $service->service_type = $request->service_type;
         $service->description = $request->description;
         $store = $service->update();
@@ -102,7 +102,7 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Service $service)
+    public function destroy(ServiceType $service)
     {
         if ($service->delete()){
             return back()->with('success', 'Service delete successfully');

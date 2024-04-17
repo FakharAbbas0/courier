@@ -18,7 +18,7 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Example Card</h5>
-              <form method="POST" action="{{ url('orders') }}" class="form-horizontal">
+              <form method="POST" action="{{ route('order_add_update') }}" class="form-horizontal">
                 @csrf()
 
                 @include('order.element')
